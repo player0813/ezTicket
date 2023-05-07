@@ -378,7 +378,6 @@
       fetch("/Activity/findAll")
         .then((Response) => Response.json())
         .then((data) => {
-          data.reverse();
           let str = "";
           let sTime="";
           let countDays="";
@@ -572,7 +571,6 @@
                  fetch("/Activity/findAll")
                  .then((Response) => Response.json())
                  .then((data) => {
-                  data.reverse();
                    let str = "";
                    let sTime = "";
                    let countDays = "";
