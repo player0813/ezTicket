@@ -59,21 +59,21 @@ public List<AimgtDto> findAll(){
         return aimgtRepository.save(aimgt);
     }
 
-    public void updateAimgt(List<Aimgt> aimgts) {
-        aimgts.forEach(aimgt -> {
-            if (aimgt.getAimgNo() != null) {
-                // Update existing image in the database
-                Aimgt existingAimgt = aimgtRepository.findById(aimgt.getAimgNo())
-                        .orElseThrow(() -> new IllegalArgumentException("Invalid image number"));
-                existingAimgt.setAimg(aimgt.getAimg());
-                existingAimgt.setAimgMain(aimgt.getAimgMain());
-                aimgtRepository.save(existingAimgt);
-            } else {
-                // Insert new image into the database
-                aimgtRepository.save(aimgt);
-            }
-        });
-    }
+//    public void updateAimgt(List<Aimgt> aimgts) {
+//        aimgts.forEach(aimgt -> {
+//            if (aimgt.getAimgNo() != null) {
+//                // Update existing image in the database
+//                Aimgt existingAimgt = aimgtRepository.findById(aimgt.getAimgNo())
+//                        .orElseThrow(() -> new IllegalArgumentException("Invalid image number"));
+//                existingAimgt.setAimg(aimgt.getAimg());
+//                existingAimgt.setAimgMain(aimgt.getAimgMain());
+//                aimgtRepository.save(existingAimgt);
+//            } else {
+//                // Insert new image into the database
+//                aimgtRepository.save(aimgt);
+//            }
+//        });
+//    }
 
     public void deleteAimgt(Integer aimgNo) {
         aimgtRepository.deleteById(aimgNo);

@@ -34,22 +34,13 @@ public class ActivityService {
                                        .map(this::entityToDTO)
                                        .collect(Collectors.toList());
 
-        for(ActivityDto act: activityList){
-            for(Aimgt aimgt :act.getAimgt() ){
-                byte[] shrinkAimg=ImageUtil.shrink(aimgt.getAimg(),500);
-                aimgt.setAimg(shrinkAimg);
-            }
-
-        }
-        return activityList;
-
-    }
-    public List<ActivityBackDashboardDto> findAllBackEventDashboard(){
-        List<ActivityBackDashboardDto> activityList=activityRepository.findAll()
-                .stream()
-                .map(this::entityToActivityBackDashboardDto)
-                .collect(Collectors.toList());
-
+//        for(ActivityDto act: activityList){
+//            for(Aimgt aimgt :act.getAimgt() ){
+//                byte[] shrinkAimg=ImageUtil.shrink(aimgt.getAimg(),500);
+//                aimgt.setAimg(shrinkAimg);
+//            }
+//
+//        }
         return activityList;
 
     }
@@ -58,7 +49,12 @@ public class ActivityService {
 
     }
 
-
+    public List<ActivityBackDashboardDto> ActivityBackDashboardDto() {
+        return activityRepository.findAll()
+                           .stream()
+                           .map(this::entityToActivityBackDashboardDTO)
+                           .collect(Collectors.toList());
+    }
 
         @Scheduled(cron = "0 0 * * * *")
     public void checkExpiredActivity() {
@@ -91,9 +87,9 @@ public class ActivityService {
         return activityDto;
     }
 
-    private ActivityBackDashboardDto entityToActivityBackDashboardDto(Activity activity){
+     private ActivityBackDashboardDto entityToActivityBackDashboardDTO(Activity activity){
 
-        ActivityBackDashboardDto activityDto = modelMapper.map(activity, ActivityBackDashboardDto.class);
+         ActivityBackDashboardDto activityDto = modelMapper.map(activity,ActivityBackDashboardDto.class);
         activityDto.setActivityNo(activity.getActivityNo());
         return activityDto;
     }
@@ -153,4 +149,6 @@ public class ActivityService {
     public List <Activity> findByaClassNo(Integer aclassNo) {
       return activityRepository.findByaClassNo(aclassNo);
     }
+
+
 }

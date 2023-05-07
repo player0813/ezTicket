@@ -27,7 +27,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/Activity")
 
-//ggggggg
 public class ActivityController {
     @Autowired
     private ActivityService activityService;
@@ -37,10 +36,10 @@ public class ActivityController {
 
         return activityService.findAllByOrderByActivityNoDesc();
     }
-    @GetMapping("/findAllBackEventDashboard")
-    public List<ActivityBackDashboardDto> findAllBackEventDashboard(){
+    @GetMapping("/findAllBackDashborad")
+    public List<ActivityBackDashboardDto> findAllBackDashborad(){
 
-        return activityService.findAllBackEventDashboard();
+        return activityService.ActivityBackDashboardDto();
     }
 
     @GetMapping("/findByaName")

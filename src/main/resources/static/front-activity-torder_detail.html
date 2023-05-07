@@ -263,11 +263,12 @@
 		fetch(`/Torder/findById?torderNo=${torderNo}`)
 				.then((resp) => resp.json())
 				.then((data) => {
+                    console.log(data)
 					let status="";
-						switch (data.tpaymentStatus) {
+						switch (data[0].tpaymentStatus) {
 						case 0: status = "未付款";
 							break;
-						case 1: status = `${data.tpayDate}`;
+						case 1: status = `${data[0].tpayDate}`;
 							break;
 						case 2: status = "已取消";
 							break;
@@ -276,10 +277,10 @@
 					}
 					let str=`<ul>
 											<li>
-												<div class="vdt-list">訂單編號 : ${data.torderNo}</div>
+												<div class="vdt-list">訂單編號 : ${data[0].torderNo}</div>
 											</li>
 											<li>
-												<div class="vdt-list">訂單成立時間 : ${data.torderDate}</div>
+												<div class="vdt-list">訂單成立時間 : ${data[0].torderDate}</div>
 											</li>
 											<li>
 												<div class="vdt-list">訂單付款時間 : ${status}</div>
@@ -299,7 +300,10 @@
 						if(i.blockName==null){
 							blockSeats= `<td>無座位<br>X${i.tqty}張</td>`;
 							blockPrice= `<td>${i.tcheckTotal/ i.tqty}</td>`;
-						}else{
+						}else if(i.realX == null){
+                            blockSeats = `<td>${i.blockName}<br>X${i.tqty}張</td>`;
+                            blockPrice = `<td>${i.blockPrice}</td>`;
+                        }else{
 							blockSeats = `<td>${i.blockName}區 ${i.realX}排${i.realY}號</td>`;
 							blockPrice = `<td>${i.blockPrice}</td>`;
 						}

@@ -16,12 +16,17 @@ public class ActivityBackDashboardDto {
     private String aName;
 
     @JsonFormat(pattern = "yyyy/MM/dd kk:mm", timezone = "GMT+8")
+
     private Date aSDate;
     @JsonFormat(pattern = "yyyy/MM/dd kk:mm", timezone = "GMT+8")
+
     private Date aEDate;
+    private Integer wetherSeat;
     private Integer aStatus;
     private String aPlace;
     private String aPlaceAdress;
     private List<Session> session;
+
+
 
 }

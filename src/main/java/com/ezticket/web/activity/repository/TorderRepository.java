@@ -12,8 +12,9 @@ import java.util.Optional;
 
 @Repository
 public interface TorderRepository extends JpaRepository<Torder, Integer> {
-//    @Query("SELECT t FROM Torder t WHERE t.torderNo LIKE %:torderNo%")
-//    List<Torder> findByTorderNoContaining(@Param("torderNo") Integer torderNo);
+    //模糊查詢
+    @Query("SELECT t FROM Torder t WHERE t.torderNo LIKE CONCAT('%', :torderNo, '%')" )
+    List<Torder> findByTorderNo(@Param("torderNo") String torderNo);
 
 //    Add by Shawn on 04/18
     @Query(value = "SELECT * FROM torder o WHERE o.tpaymentstatus = 0 AND o.torderdate < DATE_SUB(NOW(), INTERVAL 10 MINUTE)", nativeQuery = true)
