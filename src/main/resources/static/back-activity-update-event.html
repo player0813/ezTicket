@@ -1879,9 +1879,9 @@
                     <i class="fa-solid fa-ticket"></i>
                   </span>
                   <div>
-                    <span class="text-145">請輸入區域名稱</span>
+                    <span class="text-145">區域名稱</span>
                   </div>
-                  <input type="text" class="oldblockname" id="blockname${count}" value="${i.blockName}">
+                  <span>${i.blockName}</span>
 
                 </div>
               </div>
@@ -1897,9 +1897,9 @@
                     </svg>
                   </span>
                   <div>
-                    <span class="text-145">請輸入區域票價</span>
+                    <span class="text-145">區域票價</span>
                   </div>
-                  <input type="text" class="oldblockprice" id="blockprice${count}" value="${i.blockPrice}">
+                  <span>${i.blockPrice}</span>
 
                 </div>
               </div>
@@ -1971,7 +1971,7 @@
             
             input.addEventListener("change", changeListener);
             input.addEventListener("change", function changeImg() {
-              const fileInput2 = document.querySelector(`#file${count-1}`);
+              const fileInput2 = document.querySelector(`#${input.id}`);
               const formData2 = new FormData()
               console.log(count-1)
               console.log(data[i].aimgNo)

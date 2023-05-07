@@ -387,7 +387,7 @@
 
     <script>
       const listTab=document.querySelector("#listTab");
-       fetch("/Activity/findAll")
+       fetch("/Activity/findAllBackEventDashboard")
         .then((Response) => Response.json())
         .then((data) => {
           data.reverse();

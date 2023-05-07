@@ -1,5 +1,6 @@
 package com.ezticket.web.activity.controller;
 
+import com.ezticket.web.activity.dto.ActivityBackDashboardDto;
 import com.ezticket.web.activity.dto.ActivityDto;
 import com.ezticket.web.activity.pojo.Activity;
 import com.ezticket.web.activity.service.ActivityService;
@@ -36,6 +37,12 @@ public class ActivityController {
 
         return activityService.findAllByOrderByActivityNoDesc();
     }
+    @GetMapping("/findAllBackEventDashboard")
+    public List<ActivityBackDashboardDto> findAllBackEventDashboard(){
+
+        return activityService.findAllBackEventDashboard();
+    }
+
     @GetMapping("/findByaName")
     public Optional<ActivityDto> findByAname(String aName){
         return activityService.findByaName(aName);

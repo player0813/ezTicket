@@ -1,6 +1,7 @@
 package com.ezticket.web.activity.service;
 
 import com.ezticket.core.util.ImageUtil;
+import com.ezticket.web.activity.dto.ActivityBackDashboardDto;
 import com.ezticket.web.activity.dto.ActivityDto;
 import com.ezticket.web.activity.pojo.Activity;
 import com.ezticket.web.activity.pojo.Aimgt;
@@ -43,6 +44,15 @@ public class ActivityService {
         return activityList;
 
     }
+    public List<ActivityBackDashboardDto> findAllBackEventDashboard(){
+        List<ActivityBackDashboardDto> activityList=activityRepository.findAll()
+                .stream()
+                .map(this::entityToActivityBackDashboardDto)
+                .collect(Collectors.toList());
+
+        return activityList;
+
+    }
     public Optional<ActivityDto> findByaName(String aName){
         return activityRepository.findByaName(aName).map(this::entityToDTO);
 
@@ -77,6 +87,13 @@ public class ActivityService {
     private ActivityDto entityToDTO(Activity activity){
 
         ActivityDto activityDto = modelMapper.map(activity,ActivityDto.class);
+        activityDto.setActivityNo(activity.getActivityNo());
+        return activityDto;
+    }
+
+    private ActivityBackDashboardDto entityToActivityBackDashboardDto(Activity activity){
+
+        ActivityBackDashboardDto activityDto = modelMapper.map(activity, ActivityBackDashboardDto.class);
         activityDto.setActivityNo(activity.getActivityNo());
         return activityDto;
     }
