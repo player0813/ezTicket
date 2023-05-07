@@ -1736,6 +1736,12 @@
         document.querySelector("#inputclassbtn").addEventListener("click",()=>{
          const inputaclassname=document.querySelector("#inputaclassname");
          const aclassData={aclassName:inputaclassname.value};
+    //   if ($("#inputaclassname").val().trim() == "") {
+    //             $("#aclassWarning").text("請輸入活動類別")
+    //             return;
+    //         } else {
+    //             $("#aclassWarning").text("")
+    //         }
          fetch('/Aclass/saveAclass', {
           method: 'POST', 
           headers: {
@@ -1808,20 +1814,20 @@
               $("#aimgWarning").text("")
               // return;
             }
-            if ($("#adiscrip").val().trim().length < 300 || $("#adiscrip").val().trim().length>3000) {
-              $("#adiscripWarning").text("請輸入至少300字活動資訊，且不得超過3000字")
+            if ($("#adiscrip").val().trim().length < 100 || $("#adiscrip").val().trim().length>3000) {
+              $("#adiscripWarning").text("請輸入至少100字活動資訊，且不得超過3000字")
             } else {
               $("#adiscripWarning").text("")
               // return;
             }
-            if ($("#anote").val().trim().length < 300 || $("#anote").val().trim().length>3000) {
-              $("#anoteWarning").text("請輸入至少300字注意事項，且不得超過3000字")
+            if ($("#anote").val().trim().length < 100 || $("#anote").val().trim().length>3000) {
+              $("#anoteWarning").text("請輸入至少100字注意事項，且不得超過3000字")
             } else {
               $("#anoteWarning").text("")
               // return;
             }
-            if ($("#aticketremind").val().trim().length < 300 || $("#aticketremind").val().trim().length > 3000) {
-              $("#aticketRemindWarning").text("請輸入至少300字購票流程，且不得超過3000字")
+            if ($("#aticketremind").val().trim().length < 100 || $("#aticketremind").val().trim().length > 3000) {
+              $("#aticketRemindWarning").text("請輸入至少100字購票流程，且不得超過3000字")
             } else {
               $("#aticketRemindWarning").text("")
               // return;

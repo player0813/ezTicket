@@ -29,7 +29,7 @@ public class TorderController {
     }
 
     @GetMapping("/findById")
-    public Optional<Torder> findById(@RequestParam("torderNo") Integer torderNo) {
+    public List<Torder> findById(@RequestParam("torderNo") String torderNo) {
         return torderService.findById(torderNo);
     }
 

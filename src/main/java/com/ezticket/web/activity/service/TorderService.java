@@ -65,8 +65,8 @@ public class TorderService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<Torder> findById(Integer torderNo) {
-        return torderRepository.findById(torderNo);
+    public List<Torder> findById(String  torderNo) {
+        return torderRepository.findByTorderNo(torderNo);
     }
 
     private TorderDto entityToDTO(Torder torder) {
