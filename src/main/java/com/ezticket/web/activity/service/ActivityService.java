@@ -114,11 +114,10 @@ public class ActivityService {
         return activityRepository.findByactivityNo(activityNo);
 
     }
-    public List<ActivityDto> findAllByActivityNo(Integer activityNo){
+    public List<Activity> findAllByActivityNo(Integer activityNo){
 
         return activityRepository.findAllByActivityNo(activityNo)
                 .stream()
-                .map(this::entityToDTO)
                 .collect(Collectors.toList());
     }
     public Activity saveActivity(Activity activity) {

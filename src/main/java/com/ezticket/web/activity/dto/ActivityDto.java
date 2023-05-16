@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class ActivityDto {
     private Integer activityNo;
-    private byte[] aSeatsImg;
+//    private byte[] aSeatsImg;
     private String aName;
     private Integer aClassNo;
     private Integer hostNo;
@@ -34,7 +34,7 @@ public class ActivityDto {
     private String aNote;
     private String aTicketRemind;
     private List<Session> session;
-    private List<Aimgt> aimgt;
+//    private List<Aimgt> aimgt;
     private List <BlockPrice> blockPrice;
 
 

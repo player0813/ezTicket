@@ -584,13 +584,13 @@
                 countDays = dateDiffer(now, date);
 
               }
-
+	
 					$("#moreEventList").append(`
 									<div class="item">
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="front-activity-event-detail.html?activityNo=${i.activityNo}" class="thumbnail-img">
-													<img src="data:image/jpeg;base64,${i.aimgt[0].aimg}" alt="">
+													<img src="Aimgt/findByactivityNo?activityNo=${i.activityNo}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>

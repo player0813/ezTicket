@@ -83,4 +83,13 @@ public List<AimgtDto> findAll(){
     public void save(Aimgt aimgt) {
         aimgtRepository.save(aimgt);
     }
+
+    public byte[] findByactivityNo(Integer activityNo) {
+       byte[] aimg=aimgtRepository.findAllByActivityNo(activityNo)
+                       .stream()
+                       .findFirst().orElse(null)
+                       .getAimg();
+
+        return aimg;
+    }
 }

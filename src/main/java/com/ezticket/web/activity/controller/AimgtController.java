@@ -25,7 +25,11 @@ public class AimgtController {
 
         return aimgtService.findAll();
     }
+    @GetMapping("/findByactivityNo")
+    public byte[] findByactivityNo(@RequestParam Integer activityNo){
 
+        return aimgtService.findByactivityNo(activityNo);
+    }
 //    @GetMapping("/findAllByActivityNo/{activityNo}")
 //    public ResponseEntity<byte[]> getImage(@PathVariable Integer activityNo) {
 //        List<AimgtDto> aimgtDtos = aimgtService.findAllByActivityNo(activityNo);

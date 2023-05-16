@@ -80,13 +80,13 @@ public class ActivityController {
 
     @GetMapping("/findAllByActivityNo/{activityNo}")
     public ResponseEntity<byte[]> getImage(@PathVariable Integer activityNo) {
-        List<ActivityDto> activityDtos = activityService.findAllByActivityNo(activityNo);
-        if (!activityDtos.isEmpty()) {
-            ActivityDto activityDto = activityDtos.get(0);
+        List<Activity> activitys = activityService.findAllByActivityNo(activityNo);
+        if (!activitys.isEmpty()) {
+            Activity activity = activitys.get(0);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG);
-            headers.setContentLength(activityDto.getASeatsImg().length);
-            return new ResponseEntity<>(activityDto.getASeatsImg(), headers, HttpStatus.OK);
+            headers.setContentLength(activity.getASeatsImg().length);
+            return new ResponseEntity<>(activity.getASeatsImg(), headers, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

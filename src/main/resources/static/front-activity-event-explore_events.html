@@ -379,11 +379,12 @@
         .then((Response) => Response.json())
         .then((data) => {
           let str = "";
+          data.reverse();
           let sTime="";
           let countDays="";
           for (i of data) {
             
-            console.log(i.session[0]);
+            // console.log(i.aimgt[0]);
             if(i.astatus==1){
               if( i.wetherSeat ==0){
                 sTime="全站";
@@ -406,7 +407,7 @@
                             href="front-activity-event-detail.html?activityNo=${i.activityNo}"
                             class="thumbnail-img"
                           >
-                            <img src="data:image/jpeg;base64,${i.aimgt[0].aimg }" alt="" />
+                            <img src="Aimgt/findByactivityNo?activityNo=${i.activityNo}" alt="" />
                           </a>
                           <span class="bookmark-icon" title="Bookmark"></span>
                         </div>
@@ -465,7 +466,7 @@
                             href="front-activity-event-detail.html?activityNo=${i.activityNo}"
                             class="thumbnail-img"
                           >
-                            <img src="data:image/jpeg;base64,${i.aimgt[0].aimg}" alt="" />
+                            <img src="Aimgt/findByactivityNo?activityNo=${i.activityNo}" alt="" />
                           </a>
                           <span class="bookmark-icon" title="Bookmark"></span>
                         </div>
@@ -496,9 +497,8 @@
          fetch(`/Aclass/findAll`)
             .then((Response) => Response.json())
             .then((data) => {
-              console.log(data);
+              
               for(i of data){
-                console.log("eee")
                 $("#aclassList").append(`<button class="control" id="aclass${i.aclassNo}" onclick="findClass(${i.aclassNo})">${i.aclassName}</button>`)
               }
             })
@@ -541,7 +541,7 @@
                             href="front-activity-event-detail.html?activityNo=${i.activityNo}"
                             class="thumbnail-img"
                           >
-                            <img src="data:image/jpeg;base64,${i.aimgt[0].aimg}" alt="" />
+                            <img src="Aimgt/findByactivityNo?activityNo=${i.activityNo}" alt="" />
                           </a>
                           <span class="bookmark-icon" title="Bookmark"></span>
                         </div>
@@ -571,11 +571,12 @@
                  fetch("/Activity/findAll")
                  .then((Response) => Response.json())
                  .then((data) => {
+                  data.reverse();
                    let str = "";
                    let sTime = "";
                    let countDays = "";
                    for (i of data) {
-
+                    console.log(i);
                      console.log(i.session[0]);
                      if (i.astatus == 1) {
                        if (i.wetherSeat == 0) {
@@ -599,7 +600,7 @@
                             href="front-activity-event-detail.html?activityNo=${i.activityNo}"
                             class="thumbnail-img"
                           >
-                            <img src="data:image/jpeg;base64,${i.aimgt[0].aimg}" alt="" />
+                            <img src="Aimgt/findByactivityNo?activityNo=${i.activityNo}" alt="" />
                           </a>
                           <span class="bookmark-icon" title="Bookmark"></span>
                         </div>

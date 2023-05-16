@@ -13,6 +13,7 @@ public interface AimgtRepository extends JpaRepository <Aimgt,Integer> {
 
     List<Aimgt>findAllByActivityNo(Integer activityNo);
     Aimgt findByActivityNo(Integer activityNo);
+    Aimgt findByactivityNo(Integer aimgNo);
 
 
 }
